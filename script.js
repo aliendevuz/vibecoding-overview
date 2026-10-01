@@ -15,11 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
   let clickCount = 0;
   let toastTimeout = null;
 
+  // Initialize lucide icons if available
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
   // Function to show animated toast notification
-  function showToast(title, desc, icon = '✨') {
+  function showToast(title, desc, iconName = 'sparkles') {
     toastTitle.textContent = title;
     toastDesc.textContent = desc;
-    document.querySelector('.toast-icon').textContent = icon;
+    const toastIcon = document.querySelector('.toast-icon');
+    if (toastIcon) {
+      toastIcon.innerHTML = `<i data-lucide="${iconName}"></i>`;
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
     
     toast.classList.add('show');
     
@@ -64,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast(
         'Click Me bosildi!',
         `Siz tugmani ${clickCount}-marta bosdingiz. Ajoyib!`,
-        '🎉'
+        'party-popper'
       );
     });
   }
@@ -75,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       showToast(
         'Contact bo\'limi',
         'Biz bilan bog\'lanish uchun taklif yuborildi!',
-        '📬'
+        'mail'
       );
     });
   }

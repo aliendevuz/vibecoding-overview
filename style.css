@@ -21,9 +21,9 @@
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-glow: rgba(99, 102, 241, 0.35);
   
-  --gradient-main: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-  --shadow-glow: 0 10px 30px -10px rgba(99, 102, 241, 0.45);
+  --solid-primary: #6366f1;
+  --solid-accent: #a855f7;
+  --shadow-glow: 0 8px 20px -4px rgba(99, 102, 241, 0.35);
   
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --radius-sm: 8px;
@@ -54,29 +54,14 @@ body {
   line-height: 1.6;
 }
 
-/* Background Ambient Glows */
+/* Background Ambient Colors (Oddiy tekis ranglar) */
 .glow-bg {
   position: fixed;
   border-radius: 50%;
   filter: blur(140px);
   pointer-events: none;
   z-index: 0;
-}
-
-.glow-1 {
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, transparent 70%);
-  top: -100px;
-  left: 20%;
-}
-
-.glow-2 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, transparent 70%);
-  top: 15%;
-  right: 15%;
+  display: none; /* Gradientlar o'rniga toza fon */
 }
 
 /* ==========================================================================
@@ -125,7 +110,7 @@ body {
 }
 
 .logo:hover {
-  transform: translateY(-1px);
+  opacity: 0.92;
 }
 
 .logo-icon {
@@ -141,15 +126,14 @@ body {
 }
 
 .logo:hover .logo-icon {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: rgba(168, 85, 247, 0.4);
-  box-shadow: 0 0 16px rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.18);
+  border-color: rgba(99, 102, 241, 0.4);
 }
 
 .gradient-text {
-  background: var(--gradient-main);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
+  background: none;
+  -webkit-text-fill-color: initial;
 }
 
 /* Nav Menu (UL List with 4 items) */
@@ -223,48 +207,45 @@ body {
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.22);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .btn-secondary:active {
-  transform: translateY(0);
+  opacity: 0.9;
 }
 
 .btn-sparkle {
-  display: inline-block;
-  transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-secondary:hover .btn-sparkle {
-  transform: rotate(20deg) scale(1.15);
+.icon-sm {
+  width: 17px;
+  height: 17px;
+}
+
+.lucide {
+  stroke-width: 2.2;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 /* Primary Button ("Contact") */
 .btn-primary {
-  background: var(--gradient-main);
+  background: var(--primary);
   color: #ffffff;
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
   position: relative;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px -6px rgba(168, 85, 247, 0.6);
-  filter: brightness(1.08);
+  background: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 
 .btn-primary:active {
-  transform: translateY(0);
-}
-
-.btn-primary svg {
-  transition: transform 0.25s ease;
-}
-
-.btn-primary:hover svg {
-  transform: translateX(3px);
+  opacity: 0.9;
 }
 
 /* Mobile Toggle Hamburger */
@@ -319,7 +300,9 @@ body {
 }
 
 .badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 6px 16px;
   background: rgba(99, 102, 241, 0.1);
   border: 1px solid rgba(99, 102, 241, 0.3);
@@ -388,7 +371,20 @@ body {
 }
 
 .toast-icon {
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.toast-icon .lucide {
+  width: 22px;
+  height: 22px;
 }
 
 .toast-content h4 {
