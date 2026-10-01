@@ -8,6 +8,8 @@ Dasturlash asoslari va turli tillarda namunalar to'plami.
 - `main.py` — Python amaliy namuna: talabalar baholash tizimi (OOP, class, funksiyalar va ro'yxatlar)
 - `hello.php` — PHP tilida "Hello, World!" namunasi
 - `hello.erl` — Erlang tilida "Hello, World!" moduli
+- `Hello.java` — Java tilida "Hello, World!" namunasi
+- `index.html`, `style.css`, `script.js` — Zamonaviy responsive Navbar komponenti (logo, menyu havolalari, interaktiv tugmalar)
 
 ## Qanday ishga tushiriladi?
 ```bash
@@ -18,4 +20,8 @@ python main.py
 
 # PHP
 php hello.php
+
+# Java
+javac Hello.java
+java Hello
 ```

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zamonaviy va chiroyli responsive navbar komponenti">
+  <title>Modern Navbar Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Glow Effects -->
+  <div class="glow-bg glow-1"></div>
+  <div class="glow-bg glow-2"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="header" id="main-header">
+    <nav class="navbar" id="navbar">
+      <!-- Logo -->
+      <a href="#" class="logo" id="site-logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366F1"/>
+                <stop offset="1" stop-color="#A855F7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="logo-text">Vibe<span class="gradient-text">Craft</span></span>
+      </a>
+
+      <!-- 4 ta elementli UL ro'yxat (Navigation Links) -->
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item">
+          <a href="#home" class="nav-link active" id="nav-home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#features" class="nav-link" id="nav-features">Features</a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link" id="nav-about">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#pricing" class="nav-link" id="nav-pricing">Pricing</a>
+        </li>
+        <li class="nav-item mobile-only-actions">
+          <button type="button" class="btn btn-secondary w-full" onclick="document.getElementById('btn-click-me').click()">✨ Click Me</button>
+          <button type="button" class="btn btn-primary w-full" onclick="document.getElementById('btn-contact').click()">Contact</button>
+        </li>
+      </ul>
+
+      <!-- Ikkita tugma: "Click Me" va "Contact" -->
+      <div class="nav-actions">
+        <button type="button" class="btn btn-secondary" id="btn-click-me">
+          <span class="btn-sparkle">✨</span>
+          <span>Click Me</span>
+        </button>
+        <button type="button" class="btn btn-primary" id="btn-contact">
+          <span>Contact</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Content Preview -->
+  <main class="hero-section">
+    <div class="container hero-container">
+      <div class="badge">🔥 Next-Gen UI Component</div>
+      <h1 class="hero-title">
+        Zamonaviy &amp; Nafis <br>
+        <span class="gradient-text">Navigation Bar</span>
+      </h1>
+      <p class="hero-subtitle">
+        Logo, 4 ta havola (`ul &gt; li`), hamda <strong>Click Me</strong> va <strong>Contact</strong> tugmalari bilan jihozlangan responsive navbar.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="document.getElementById('btn-click-me').click()">
+          Tugmani sinab ko'rish
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Notification Toast -->
+  <div class="toast" id="toast">
+    <div class="toast-icon">🚀</div>
+    <div class="toast-content">
+      <h4 id="toast-title">Ajoyib!</h4>
+      <p id="toast-desc">Tugma muvaffaqiyatli bosildi.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
